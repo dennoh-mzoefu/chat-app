@@ -11,8 +11,10 @@ function App() {
   const [showChat, setShowChat] = useState(false);
 
   const joinRoom = () => {
-    socket.emit("join-room", room);
-    setShowChat(true);
+    if (username !== "" && room !== "") {
+      socket.emit("join-room", room);
+      setShowChat(true);
+    }
   };
   return (
     <div className="App">
